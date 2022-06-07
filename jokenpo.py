@@ -1,70 +1,73 @@
 import random
-pc1 = 0
-pc2 = 0
-pc3 = 0
-pl1 = 0
-pl2 = 0
-pl3 = 0
-verificacao = True
-lista1 = ["Pedra", "Papel", "Tesoura"]
+
+# Score
+scpu1 = 0
+scpu2 = 0
+scpu3 = 0
+spl1 = 0
+spl2 = 0
+spl3 = 0
+
+verification = True
+moves = ["Rock", "Paper", "Scissors"]
 
 # Menu
-modo = int(input("Escolha o modo de jogo: PC X PC(1), Player x Player(2), Player x PC(3): "))
-while verificacao:
+gameMode = int(input("Choose a game mode: CPU X CPU(1), Player x Player(2), Player x CPU(3): "))
+while verification:
 
-    # PC vs PC
-    if modo == 1:
-        computador1 = random.choice(lista1)
-        computador2 = random.choice(lista1)
+    # CPU vs CPU
+    if gameMode == 1:
+        cpu1 = random.choice(moves)
+        cpu2 = random.choice(moves)
         print("-----------------------------------")
         print("JO \nKEN \nPO")
         print("-----------------------------------")
-        print("O computador 1 jogou:", computador1)
-        print("O computador 2 jogou:", computador2)
+        print("CPU 1 choose:", cpu1)
+        print("CPU 2 choose:", cpu2)
 
-        # PC Jogando Pedra
+        # CPU 1 chooses rock
 
-        if computador1 == "Pedra" and computador2 == "Pedra":
-            print("Empatou")
-        elif computador1 == "Pedra" and computador2 == "Papel":
-            print("Vitória do computador 2")
-            pc2 += 1
-        elif computador1 == "Pedra" and computador2 == "Tesoura":
-            print("Vitória do computador 1")
-            pc1 += 1
+        if cpu1 == "Rock" and cpu2 == "Rock":
+            print("Draw")
+        elif cpu1 == "Rock" and cpu2 == "Paper":
+            print("CPU 2 Wins!")
+            scpu2 += 1
+        elif cpu1 == "Rock" and cpu2 == "Scissors":
+            print("CPU 1 Wins!")
+            scpu2 += 1
 
-        # PC Jogando Papel
+        # CPU 1 chosses paper
     
-        elif computador1 == "Papel" and computador2 == "Pedra":
-            print("Vitória do computador 1")
-            pc1 += 1
-        elif computador1 == "Papel" and computador2 == "Papel":
-            print("Empatou")
-        elif computador1 == "Papel" and computador2 == "Tesoura":
-            print("Vitória do computador 2")
-            pc2 += 1
+        elif cpu1 == "Paper" and cpu2 == "Rock":
+            print("CPU 1 Wins!")
+            scpu1 += 1
+        elif cpu1 == "Paper" and cpu2 == "Paper":
+            print("Draw")
+        elif cpu2 == "Paper" and cpu2 == "Scissors":
+            print("CPU 2 Wins!")
+            scpu2 += 1
 
-        # PC Jogando Tesoura
+        # CPU 1 chosses scissors
 
-        elif computador1 == "Tesoura" and computador2 == "Pedra":
-            print("Vitória do computador 2")
-            pc2 += 1
-        elif computador1 == "Tesoura" and computador2 == "Papel":
-            print("Vitória do computador 1")
-            pc1 += 1
+        elif cpu1 == "Scissors" and cpu2 == "Rock":
+            print("CPU 2 Wins!")
+            scpu2 += 1
+        elif cpu2 == "Scissors" and cpu2 == "Paper":
+            print("CPU 1 Wins!")
+            scpu1 += 1
         else:
-            print("Empatou")
+            print("Draw")
 
     # Player vs Player
 
-    elif modo == 2:
-        jogada1 = input("Turno do Jogador 1 \nDigite a sua jogada: Pedra, Papel ou Tesoura: ")
-        jogada2 = input("Turno do Jogador 2 \nDigite a sua jogada: Pedra, Papel ou Tesoura: ")
+    elif gameMode == 2:
+        player1_action = input("Player 1 Turn \nDigite a sua jogada: Pedra, Papel ou Tesoura: ")
+        player2_action = input("Player 2 Turn \nDigite a sua jogada: Pedra, Papel ou Tesoura: ")
         print("-----------------------------------")
         print("JO \nKEN \nPO")
         print("-----------------------------------")
-        print("O jogador 1 jogou: ", jogada1)
-        print("O jogador 2 jogou: ", jogada2)
+        print("O jogador 1 jogou: ", player1_action)
+        print("O jogador 2 jogou: ", player2_action)
 
         # Jogador1 Pedra
 
@@ -160,5 +163,5 @@ while verificacao:
         else:
             print1 = pl3
             print2 = pc3
-        print("-----------------------------------\nObrigado por jogar \nPlacar Final: Usuário 1: {0} / Usuário 2: {1} ".format(print1, print2))
+        print("-----------------------------------\nThanks for playing \nScoreboard: User 1: {0} / User 2: {1} ".format(print1, print2))
         verificacao = False
